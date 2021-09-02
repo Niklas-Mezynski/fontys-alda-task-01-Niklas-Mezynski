@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import simpletimeapi.AbstractAPFactory;
 import simpletimeapi.Duration;
+import simpletimeapi.Time;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -65,6 +66,24 @@ public class DurationTest {
         Duration d1 = factory.createDuration(minutes1);
         Duration d2 = factory.createDuration(minutes2);
         assertThat(d1.plus(d2).asMinutes()).isEqualTo(newDurationLength);
+    }
+
+    @ParameterizedTest
+    @CsvSource( {
+            "1, 1",
+            "69, 69"
+    } )
+    void t05toString(int minutes, String expected) {
+        Duration d1 = factory.createDuration(minutes);
+        assertThat(d1.toString()).contains(expected, "minutes");
+    }
+
+    @Test
+    void t06equalsAndHash() {
+        Duration d1 = factory.createDuration(90);
+        Duration d2 = factory.createDuration(90);
+        Duration d3 = factory.createDuration(69);
+        Helper.verifyEqualsAndHashCode(d1, d2, d3);
     }
 
 }

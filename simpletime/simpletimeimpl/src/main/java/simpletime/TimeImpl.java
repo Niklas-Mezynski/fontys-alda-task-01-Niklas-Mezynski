@@ -3,10 +3,13 @@ package simpletime;
 import simpletimeapi.Duration;
 import simpletimeapi.Time;
 
+import java.util.Objects;
+
 public class TimeImpl implements Time {
 
-    private int minutes;
-    private int hours;
+    private final int minutes;
+
+    private final int hours;
 
     public TimeImpl(int hours, int minutes) {
         int totalMins = hours * 60 + minutes;
@@ -53,10 +56,27 @@ public class TimeImpl implements Time {
 
     @Override
     public String toString() {
-        String mins = String.valueOf(minutes);
+        String mins = String.valueOf(this.minutes);
+        String hours = String.valueOf(this.hours);
         if (this.minutes < 10) {
             mins = "0" + mins;
         }
-        return this.hours + ":" + mins;
+        if (this.hours < 10) {
+            hours = "0" + hours;
+        }
+        return hours + ":" + mins;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TimeImpl time = (TimeImpl) o;
+        return minutes == time.minutes && hours == time.hours;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(minutes, hours);
     }
 }

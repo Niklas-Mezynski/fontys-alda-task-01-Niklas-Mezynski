@@ -21,8 +21,8 @@ public class TimeTest {
     @ParameterizedTest
     @CsvSource( {
             "10,20,10:20",
-            "0,90,1:30",
-            "1,120,3:00",
+            "0,90,01:30",
+            "1,120,03:00",
             "25,-61,23:59"
     } )
     void t02toString(int hours, int minutes, String expectedResult) {
@@ -33,9 +33,9 @@ public class TimeTest {
     @ParameterizedTest
     @CsvSource( {
             "10,20,30,10:50",
-            "0,90,45,2:15",
+            "0,90,45,02:15",
             "13,30,-20,13:10",
-            "23,00,120,1:00"
+            "23,00,120,01:00"
     } )
     void t03addMinutes(int hours, int minutes, int toAdd, String expectedRes) {
         Time time = factory.createTime(hours, minutes);
@@ -44,8 +44,8 @@ public class TimeTest {
 
     @ParameterizedTest
     @CsvSource( {
-            "1,30,2,30,4:00",
-            "22,30,10,45,9:15"
+            "1,30,2,30,04:00",
+            "22,30,10,45,09:15"
     } )
     void t04addAnotherTime(int hours1, int minutes1, int hours2, int minutes2, String expectedRes) {
         Time time1 = factory.createTime(hours1, minutes1);
@@ -75,6 +75,14 @@ public class TimeTest {
         Time time2 = factory.createTime(hours2, minutes2);
         Duration durationUntil = time1.until(time2);
         assertThat(durationUntil.asMinutes()).isEqualTo(expectedRes);
+    }
+
+    @Test
+    void t07equalsAndHash() {
+        Time time1 = factory.createTime(1, 30);
+        Time time2 = factory.createTime(0, 90);
+        Time time3 = factory.createTime(1, 31);
+        Helper.verifyEqualsAndHashCode(time1, time2, time3);
     }
 
 }

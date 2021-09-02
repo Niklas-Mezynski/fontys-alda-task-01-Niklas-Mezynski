@@ -41,7 +41,7 @@ public class DurationImpl implements simpletimeapi.Duration {
 
     @Override
     public String toString() {
-        return this.totalMinutes + "minutes";
+        return this.totalMinutes + " minutes";
     }
 
     @Override

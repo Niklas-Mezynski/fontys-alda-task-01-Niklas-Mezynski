@@ -46,7 +46,11 @@ public class TimeImpl implements Time {
 
     @Override
     public Duration until(Time other) {
-        return new DurationImpl(other.asMinutes() - this.asMinutes());
+        int timeDifference = other.asMinutes() - this.asMinutes();
+        if (timeDifference < 0) {
+            timeDifference += 60 * 24;
+        }
+        return new DurationImpl(timeDifference);
     }
 
     @Override

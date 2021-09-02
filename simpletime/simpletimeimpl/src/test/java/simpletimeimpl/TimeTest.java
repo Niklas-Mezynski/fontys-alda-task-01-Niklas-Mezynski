@@ -68,7 +68,7 @@ public class TimeTest {
     @ParameterizedTest
     @CsvSource( {
             "1,30,2,30,60",
-            "22,30,22,15,-15"
+            "9,35,9,15,1420"
     } )
     void t06durationUntil(int hours1, int minutes1, int hours2, int minutes2, int expectedRes) {
         Time time1 = factory.createTime(hours1, minutes1);

@@ -35,8 +35,7 @@ public class APFactory implements AbstractAPFactory {
     @Override
     public Time createTime( int hours, int minutes ) {
         //TODO
-        //Test
-        return null;
+        return new TimeImpl(hours, minutes);
     }
 
     /**
@@ -51,7 +50,7 @@ public class APFactory implements AbstractAPFactory {
     @Override
     public Duration createDuration( int hours, int minutes ) {
         //TODO
-        return null;
+        return new DurationImpl(hours, minutes);
     }
 
     /**
@@ -63,7 +62,7 @@ public class APFactory implements AbstractAPFactory {
     @Override
     public Duration createDuration( int lengthInMinutes ) {
         //TODO
-        return null;
+        return new DurationImpl(lengthInMinutes);
     }
 
 }

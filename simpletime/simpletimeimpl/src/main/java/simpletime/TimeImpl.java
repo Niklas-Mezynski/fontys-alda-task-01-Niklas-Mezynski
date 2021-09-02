@@ -24,7 +24,12 @@ public class TimeImpl implements Time {
 
     @Override
     public Time addTime(int minutes) {
-        return null;
+        int totalMins = this.totalMins() + minutes;
+        //TODO Not working so far if its more than 1 day
+        int totalHours = totalMins / 60;
+        int hours = totalHours % 24;
+        int mins = totalMins - (totalHours * 60);
+        return new TimeImpl(hours, mins);
     }
 
     @Override
@@ -54,5 +59,9 @@ public class TimeImpl implements Time {
             mins = "0" + mins;
         }
         return this.hours + ":" + mins;
+    }
+
+    private int totalMins() {
+        return this.hours * 60 + this.minutes;
     }
 }

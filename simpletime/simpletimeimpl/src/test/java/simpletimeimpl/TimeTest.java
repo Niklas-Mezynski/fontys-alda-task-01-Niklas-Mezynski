@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import simpletimeapi.AbstractAPFactory;
+import simpletimeapi.Duration;
 import simpletimeapi.Time;
 import static org.assertj.core.api.Assertions.*;
 
@@ -62,6 +63,18 @@ public class TimeTest {
         Time time1 = factory.createTime(hours1, minutes1);
         Time time2 = factory.createTime(hours2, minutes2);
         assertThat(Integer.signum(time1.compareTo(time2))).isEqualTo(compareResult);
+    }
+
+    @ParameterizedTest
+    @CsvSource( {
+            "1,30,2,30,60",
+            "22,30,22,15,-15"
+    } )
+    void t06durationUntil(int hours1, int minutes1, int hours2, int minutes2, int expectedRes) {
+        Time time1 = factory.createTime(hours1, minutes1);
+        Time time2 = factory.createTime(hours2, minutes2);
+        Duration durationUntil = time1.until(time2);
+        assertThat(durationUntil.asMinutes()).isEqualTo(expectedRes);
     }
 
 }

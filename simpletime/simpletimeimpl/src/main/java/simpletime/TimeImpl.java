@@ -43,7 +43,7 @@ public class TimeImpl implements Time {
 
     @Override
     public Duration until(Time other) {
-        return null;
+        return new DurationImpl(other.asMinutes() - this.asMinutes());
     }
 
     @Override

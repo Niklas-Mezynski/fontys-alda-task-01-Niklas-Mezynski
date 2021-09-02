@@ -14,7 +14,7 @@ public class DurationImpl implements simpletimeapi.Duration {
 
     @Override
     public simpletimeapi.Duration plus(simpletimeapi.Duration duration) {
-        return null;
+        return new DurationImpl(this.asMinutes() + duration.asMinutes());
     }
 
     @Override

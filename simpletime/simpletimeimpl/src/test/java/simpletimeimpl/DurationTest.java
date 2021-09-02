@@ -59,7 +59,7 @@ public class DurationTest {
     @CsvSource( {
             "1,2,3",
             "3,3,6",
-            "420,69,589"
+            "420,69,489"
     } )
     void t04addDurations(int minutes1, int minutes2, int newDurationLength) {
         Duration d1 = factory.createDuration(minutes1);

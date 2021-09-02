@@ -2,14 +2,14 @@ package simpletime;
 
 public class DurationImpl implements simpletimeapi.Duration {
 
-
+    private int totalMinutes;
 
     public DurationImpl(int hours, int minutes) {
-
+        this.totalMinutes = hours * 60 + minutes;
     }
 
     public DurationImpl(int lengthInMinutes) {
-
+        this.totalMinutes = lengthInMinutes;
     }
 
     @Override
@@ -19,21 +19,21 @@ public class DurationImpl implements simpletimeapi.Duration {
 
     @Override
     public int getHours() {
-        return 0;
+        return this.totalMinutes / 60;
     }
 
     @Override
     public int getMinutes() {
-        return 0;
+        return this.totalMinutes % 60;
     }
 
     @Override
     public int asMinutes() {
-        return 0;
+        return this.totalMinutes;
     }
 
     @Override
     public int compareTo(simpletimeapi.Duration o) {
-        return 0;
+        return this.asMinutes() - o.asMinutes();
     }
 }

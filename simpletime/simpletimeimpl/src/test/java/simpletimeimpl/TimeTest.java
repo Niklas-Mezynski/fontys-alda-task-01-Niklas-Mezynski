@@ -52,4 +52,16 @@ public class TimeTest {
         assertThat(time1.addTime(time2).toString()).isEqualTo(expectedRes);
     }
 
+    @ParameterizedTest
+    @CsvSource( {
+            "1,30,2,30,-1",
+            "2,0,0,120,0",
+            "1,30,0,91,1"
+    } )
+    void t05compareTo(int hours1, int minutes1, int hours2, int minutes2, int compareResult) {
+        Time time1 = factory.createTime(hours1, minutes1);
+        Time time2 = factory.createTime(hours2, minutes2);
+        assertThat(Integer.signum(time1.compareTo(time2))).isEqualTo(compareResult);
+    }
+
 }

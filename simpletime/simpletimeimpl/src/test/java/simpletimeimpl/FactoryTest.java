@@ -6,7 +6,6 @@ import simpletimeapi.AbstractAPFactory;
 import simpletimeapi.Duration;
 import simpletimeapi.Time;
 import static org.assertj.core.api.Assertions.*;
-import org.junit.jupiter.params.ParameterizedTest;
 
 public class FactoryTest {
 

@@ -41,4 +41,15 @@ public class TimeTest {
         assertThat(time.addTime(toAdd).toString()).isEqualTo(expectedRes);
     }
 
+    @ParameterizedTest
+    @CsvSource( {
+            "1,30,2,30,4:00",
+            "22,30,10,45,9:15"
+    } )
+    void t04addAnotherTime(int hours1, int minutes1, int hours2, int minutes2, String expectedRes) {
+        Time time1 = factory.createTime(hours1, minutes1);
+        Time time2 = factory.createTime(hours2, minutes2);
+        assertThat(time1.addTime(time2).toString()).isEqualTo(expectedRes);
+    }
+
 }

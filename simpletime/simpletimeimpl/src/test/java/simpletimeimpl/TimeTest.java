@@ -56,7 +56,7 @@ public class TimeTest {
     @CsvSource( {
             "1,30,2,30,-1",
             "2,0,0,120,0",
-            "1,30,0,91,1"
+            "0,91,1,30,1"
     } )
     void t05compareTo(int hours1, int minutes1, int hours2, int minutes2, int compareResult) {
         Time time1 = factory.createTime(hours1, minutes1);

@@ -48,7 +48,7 @@ public class TimeImpl implements Time {
 
     @Override
     public int compareTo(Time o) {
-        return 0;
+        return this.asMinutes() - o.asMinutes();
     }
 
     @Override

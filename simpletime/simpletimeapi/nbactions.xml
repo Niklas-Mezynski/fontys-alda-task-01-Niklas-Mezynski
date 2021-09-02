@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-javadoc</actionName>
+            <displayName>javadoc</displayName>
+            <goals>
+                <goal>javadoc:javadoc</goal>
+            </goals>
+            <activatedProfiles>
+                <activatedProfile>all-javadoc</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>CUSTOM-site</actionName>
+            <displayName>site</displayName>
+            <goals>
+                <goal>site</goal>
+            </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-test-debug</actionName>
+            <displayName>test-debug</displayName>
+            <goals>
+                <goal>test</goal>
+            </goals>
+            <properties>
+                <maven.surefire.debug>true</maven.surefire.debug>
+            </properties>
+        </action>
+    </actions>

@@ -1,0 +1,3 @@
+module simpletimeapi {
+    exports simpletimeapi;
+}

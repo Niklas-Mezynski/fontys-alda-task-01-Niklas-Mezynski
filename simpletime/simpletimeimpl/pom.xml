@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>nl.fontys.sebivenlo</groupId>
+        <artifactId>simpletimeparent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <groupId>nl.fontys.sebivenlo</groupId>
+    <artifactId>simpletimeimpl</artifactId>
+    <!-- <version>1.0-SNAPSHOT</version> -->
+    <packaging>jar</packaging>
+    <name>Simple Time Impl :: solution</name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.release>11</java.release>
+        <surefire.opens>
+            <!-- add add-opens lines for **ALL** packages in your module that are tested.
+                For testing it is fine to open your packages for the whole world, which includes
+                e.g. junit, assertj, mockito, and jacoco, to name a few.
+                Also leave ${argLine} because it is set/used by the coverage plugin.
+            -->
+            --add-opens simpletimeimpl/simpletime=ALL-UNNAMED 
+            --add-opens simpletimeimpl/simpletimeimpl=ALL-UNNAMED
+        </surefire.opens>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>nl.fontys.sebivenlo</groupId>
+            <artifactId>simpletimeapi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

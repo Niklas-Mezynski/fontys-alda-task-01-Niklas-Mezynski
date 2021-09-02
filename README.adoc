@@ -1,0 +1,47 @@
+ifdef::env-github[]
+:imagesdir: images/
+endif::[]
+:imagesdir: images
+
+== Simple Time
+
+The exercise for the first week is an appetizer before we start with the real work, the dinner. Goal of the assignment
+is to get familiar with our way of working using an external API describing the requirements and a Factory class, as part of
+your implementation, that creates instances of the classes that implement the API.
+
+The main exercise for the first seven weeks will be about an appointment planning tool to schedule appointments. As you can imagine,
+Time and Duration play an important role in such an application. Dealing with dates and times is always a bit awkward. Even in Java,
+it took a long time (since Java8) before a decent Date and Time API (`java.time`) was available. It's an extensive API that needs some studying
+for proper use.
+
+Normally you shouldn't reinvent the wheel, but this week we do by developing our own simple and stupid `Time` and `Duration` classes.
+We purposely do not use the `java.time` API. You'll be provided with a Maven project that contains a reference to the API and a Service
+Finder facility already. In your test classes, you can invoke the static `getFactory()` method of the `ServiceFinder` class to get an
+`AbstractAPFactory` object that in turn can create `Time` and `Duration` objects. 
+See the class diagram below.
+
+.Class diagram for the classes Time and Duration.
+image::simpletimecd.svg[]
+
+
+== Tasks
+
+. Use NetBeans and open the Maven project named: `simpletime`.
+
+. Test-driven develop a `Time` and `Duration` implementation, as defined in the API.
+   After the tests being written, commit your test to your repository using a proper commit message!
+    AFTERWARDS, implement the according method and commit the implementation. Again, using a proper commit message.
+    Make sure that the test coverage is 100 percent, using the already available *JacoCoverage* plugin (as it was available in PRC2).
+
+. Study chapter 6 of the Core Java book (Cay Horstmann, Volume II, 11th edition) regarding the Java Date and Time API, to be prepared for next week's assignments.
+
+== Testing and feedback
+
+.   You're forced to work test driven, and show us you did (commit logs).
+    Write only code that is needed for your tests to succeed.
+    That way you will keep your code coverage at 100%.
+.   Setup CodeGrade to automatically test your code and run the teacher tests.
+    CodeGrade can be setup by clicking the `Set up Git` button in the assignment description on Canvas
+
+But: be aware that you HAVE TO WRITE your own tests first. Our tests are just a final check.
+Your task is not finished as long as there are red tests in either YOUR or OUR test runs and as long as the coverage of YOUR tests on YOUR code is not 100 percent.
